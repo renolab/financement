@@ -6,16 +6,16 @@ Ce projet a pour objectif de proposer un parcours unique de financement des trav
 
 ### Objectifs
 
-🎯 Évaluer des aides financières pour des projets de rénovation énergétique
-🎯 Administrer une demande de financement en garantissant la cohérence et la sécurité des dossiers
-🎯 Proposer un modèle de guichet unique du financement de la rénovation énergétique
+- 🎯 Évaluer des aides financières pour des projets de rénovation énergétique
+- 🎯 Administrer une demande de financement en garantissant la cohérence et la sécurité des dossiers
+- 🎯 Proposer un modèle de guichet unique du financement de la rénovation énergétique
 
 ### Livrables
 
-🛠️ Règles d'évaluation des dispositifs d'aide à la rénovation énergétique au format Publicodes
-🛠️ Standard d'échange de données au format JSON Schema
-🛠️ Guide d'intégration d'un guichet unique de financement
-🛠️ API métier d'instruction des demandes de financement
+- 🛠️ Règles d'évaluation des dispositifs d'aide à la rénovation énergétique au format Publicodes
+- 🛠️ Standard d'échange de données au format JSON Schema
+- 🛠️ Guide d'intégration d'un guichet unique de financement
+- 🛠️ API métier d'instruction des demandes de financement
 
 ### Budget
 
