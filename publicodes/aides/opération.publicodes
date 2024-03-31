@@ -1,0 +1,51 @@
+opération:
+  titre: Opération
+  valeur: oui
+
+opération . isolation:
+  titre: Isolation
+  valeur: oui
+
+opération . date de référence:
+  titre : Date prévisionnelle des travaux
+
+opération . logement existant:
+  titre: Logement existant depuis plus de deux ans
+
+opération . code département:
+  titre: Code département
+
+opération . metropole:
+  valeur: geo . metropole
+  contexte:
+    geo . code département: opération . code département
+
+opération . outre mer:
+  valeur: geo . outre mer
+  contexte:
+    geo . code département: opération . code département
+
+opération . zone climatique:
+  par défaut: non
+  variations:
+    - si: opération . zone climatique . H1
+      alors: "'H1'"
+    - si: opération . zone climatique . H2
+      alors: "'H2'"
+    - si: opération . zone climatique . H3
+      alors: "'H3'"
+
+opération . zone climatique . H1:
+  valeur: geo . zone climatique . H1
+  contexte:
+    geo . code département: opération . code département
+
+opération . zone climatique . H2:
+  valeur: geo . zone climatique . H2
+  contexte:
+    geo . code département: opération . code département
+
+opération . zone climatique . H3:
+  valeur: geo . zone climatique . H3
+  contexte:
+    geo . code département: opération . code département

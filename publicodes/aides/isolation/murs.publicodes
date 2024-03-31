@@ -1,0 +1,109 @@
+opération . isolation . murs:
+  titre: Isolation des murs
+
+opération . isolation . murs . iti:
+  titre: Isolation par l'intérieur
+  applicable si: opération . isolation . murs
+
+opération . isolation . murs . iti . coût HT:
+  titre: Coût HT des travaux
+  applicable si: opération . isolation . murs . iti
+
+opération . isolation . murs . ite:
+  titre: Isolation par l'extérieur
+  applicable si: opération . isolation . murs
+
+opération . isolation . murs . ite . coût HT:
+  titre: Coût HT des travaux
+  applicable si: opération . isolation . murs . ite
+
+opération . isolation . murs . surface:
+  applicable si: opération . isolation . murs
+  titre: Surface d'isolant
+  unité: m2
+
+opération . isolation . murs . aides:
+  somme:
+    - opération . isolation . murs . aides . cee
+
+opération . isolation . murs . aides . cee:
+  unité: €
+  formule:
+    produit:
+      - somme:
+        - opération . isolation . murs . aides . cee . BAR-EN-101
+      - unité: €/kWhc
+        valeur: 0.0065
+
+opération . isolation . murs . aides . cee . classique:
+  unité: €
+  formule:
+    produit:
+      - somme:
+        - opération . isolation . murs . aides . cee . BAR-EN-101
+      - unité: €/kWhc
+        valeur: 0.0065
+
+opération . isolation . murs . aides . cee . précarité:
+  unité: €
+  formule:
+    produit:
+      - somme:
+        - opération . isolation . murs . aides . cee . BAR-EN-101
+      - unité: €/kWhc
+        valeur: 0.0065
+
+opération . isolation . murs . aides . cee . BAR-EN-101:
+  unité: kWhc
+  formule:
+    produit:
+      - opération . isolation . murs . aides . cee . BAR-EN-101 . montant forfaitaire
+      - opération . isolation . murs . surface
+  applicable si:
+      toutes ces conditions:
+        - opération . isolation . murs . aides . cee . BAR-EN-101 . est applicable
+        - opération . isolation . murs . aides . cee . BAR-EN-101 . est éligible
+
+opération . isolation . murs . aides . cee . BAR-EN-101 . est applicable:
+  par défaut: non
+  toutes ces conditions:
+    - opération . isolation . murs . iti
+    - opération . isolation . murs . ite
+
+opération . isolation . murs . aides . cee . BAR-EN-101 . est éligible:
+  par défaut: non
+  toutes ces conditions:
+    - opération . logement existant
+
+opération . isolation . murs . aides . cee . BAR-EN-101 . montant forfaitaire:
+  par défaut: 0
+  unité: kWhc
+  variations:
+    - si:
+        toutes ces conditions:
+          - opération . date de référence >= 01/01/2024
+          - opération . date de référence < 01/05/2027
+      alors:
+        par défaut: 0
+        unité: kWhc/m2
+        variations: 
+          - si: opération . zone climatique = "H1"
+            alors: 1700
+          - si: opération . zone climatique = "H2"
+            alors: 1400
+          - si: opération . zone climatique = "H3"
+            alors: 920
+    - si:
+        toutes ces conditions:
+          - opération . date de référence >= 01/05/2022
+          - opération . date de référence < 01/01/2024
+      alors:
+        par défaut: 0
+        unité: kWhc/m2
+        variations: 
+          - si: opération . zone climatique = "H1"
+            alors: 1700
+          - si: opération . zone climatique = "H2"
+            alors: 1400
+          - si: opération . zone climatique = "H3"
+            alors: 920

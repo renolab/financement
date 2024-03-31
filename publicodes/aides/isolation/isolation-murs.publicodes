@@ -1,0 +1,228 @@
+rénovation . isolation des murs:
+  titre: Isolation des murs
+  par défaut: non
+
+rénovation . isolation des murs . aides: oui
+rénovation . isolation des murs . aides . maprimerénov': oui
+rénovation . isolation des murs . aides . cee: oui
+
+rénovation . isolation des murs . isolation des murs par l'extérieur:
+  titre: Isolation par l'extérieur
+  par défaut: non
+  applicable si: rénovation . isolation des murs
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . surface:
+  titre: Surface à isoler
+  unité: m2
+  applicable si: rénovation . isolation des murs . isolation des murs par l'extérieur
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . coût HT:
+  titre: Coût HT des travaux
+  unité: €
+  applicable si: rénovation . isolation des murs . isolation des murs par l'extérieur
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides:
+  titre: Montant des aides
+  unité: €
+  applicable si: rénovation . isolation des murs . isolation des murs par l'extérieur
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov':
+  titre: Montant de l'aide Ma Prime Rénov'
+  unité: €
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . cee:
+  titre: Montant de l'aide Certificats d'Economies d'Energie
+  unité: €
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . dépenses éligibles:
+  titre: Plafonds de dépenses éligibles
+  valeur: rénovation . isolation des murs . isolation des murs par l'extérieur . coût HT
+  plafond:
+    produit:
+      - 150 €/m2
+      - rénovation . isolation des murs . isolation des murs par l'extérieur . surface
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . primes déductibles ressources très modestes:
+  titre: Montant des primes déductibles pour les ménages aux ressources très modeste
+  unité: €
+  somme:
+    - rénovation . isolation des murs . isolation des murs par l'extérieur . aides . cee . prime ressources très modestes
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . reste à charge ressources très modestes:
+  titre: Reste à charge plancher pour les ménages aux ressources très modeste
+  unité: €
+  produit:
+    - rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . dépenses éligibles
+    - rénovation . aides . maprimerénov' . taux de reste à charge ressources très modestes
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . prime ressources très modestes:
+  titre: Prime pour les ménages aux ressources très modestes
+  produit:
+    - 75 €/m2
+    - rénovation . isolation des murs . isolation des murs par l'extérieur . surface
+  plafond:
+    le maximum de:
+      - 0
+      - somme:
+        - rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . dépenses éligibles
+        - (- rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . primes déductibles ressources très modestes)
+        - (- rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . reste à charge ressources très modestes)
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . primes déductibles ressources modestes:
+  titre: Montant des primes déductibles pour les ménages aux ressources modestes
+  unité: €
+  somme:
+    - rénovation . isolation des murs . isolation des murs par l'extérieur . aides . cee . prime ressources modestes
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . reste à charge ressources modestes:
+  titre: Reste à charge plancher pour les ménages aux ressources modestes
+  unité: €
+  produit:
+    - rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . dépenses éligibles
+    - rénovation . aides . maprimerénov' . taux de reste à charge ressources modestes
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . prime ressources modestes:
+  titre: Prime pour les ménages aux ressources modestes
+  produit:
+    - 60 €/m2
+    - rénovation . isolation des murs . isolation des murs par l'extérieur . surface
+  plafond:
+    le maximum de:
+      - 0
+      - somme:
+        - rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . dépenses éligibles
+        - (- rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . primes déductibles ressources modestes)
+        - (- rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . reste à charge ressources modestes)
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . primes déductibles ressources intermédiaires:
+  titre: Montant des primes déductibles pour les ménages aux ressources intermédiaires
+  unité: €
+  somme:
+    - rénovation . isolation des murs . isolation des murs par l'extérieur . aides . cee . prime ressources intermédiaires
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . reste à charge ressources intermédiaires:
+  titre: Reste à charge plancher pour les ménages aux ressources intermédiaires
+  unité: €
+  produit:
+    - rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . dépenses éligibles
+    - rénovation . aides . maprimerénov' . taux de reste à charge ressources intermédiaires
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . prime ressources intermédiaires:
+  titre: Prime pour les ménages aux ressources intermédiaires
+  produit:
+    - 40 €/m2
+    - rénovation . isolation des murs . isolation des murs par l'extérieur . surface
+  plafond:
+    le maximum de:
+      - 0
+      - somme:
+        - rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . dépenses éligibles
+        - (- rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . primes déductibles ressources intermédiaires)
+        - (- rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . reste à charge ressources intermédiaires)
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . primes déductibles ressources supérieures:
+  titre: Montant des primes déductibles pour les ménages aux ressources supérieures
+  unité: €
+  somme:
+    - rénovation . isolation des murs . isolation des murs par l'extérieur . aides . cee . prime ressources supérieures
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . reste à charge ressources supérieures:
+  titre: Reste à charge plancher pour les ménages aux ressources supérieures
+  unité: €
+  produit:
+    - rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . dépenses éligibles
+    - rénovation . aides . maprimerénov' . taux de reste à charge ressources supérieures
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . maprimerénov' . prime ressources supérieures:
+  titre: Prime pour les ménages aux ressources supérieures
+  valeur: 0
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . cee . prime ressources très modestes:
+  titre: Prime CEE pour les ménages aux ressources très modestes
+  unité: €
+  applicable si: rénovation . isolation des murs . aides . cee . est éligible
+  produit:
+    - rénovation . isolation des murs . isolation des murs par l'extérieur . aides . cee . volume
+    - rénovation . aides . cee . valorisation précarité
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . cee . prime ressources modestes:
+  titre: Prime CEE pour les ménages aux ressources modestes
+  unité: €
+  applicable si: rénovation . isolation des murs . aides . cee . est éligible
+  produit:
+    - rénovation . isolation des murs . isolation des murs par l'extérieur . aides . cee . volume
+    - rénovation . aides . cee . valorisation classique
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . cee . prime ressources intermédiaires:
+  titre: Prime CEE pour les ménages aux ressources intermédiaires
+  unité: €
+  applicable si: rénovation . isolation des murs . aides . cee . est éligible
+  produit:
+    - rénovation . isolation des murs . isolation des murs par l'extérieur . aides . cee . volume
+    - rénovation . aides . cee . valorisation classique
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . cee . prime ressources supérieures:
+  titre: Prime CEE pour les ménages aux ressources supérieures
+  unité: €
+  applicable si: rénovation . isolation des murs . aides . cee . est éligible
+  produit:
+    - rénovation . isolation des murs . isolation des murs par l'extérieur . aides . cee . volume
+    - rénovation . aides . cee . valorisation classique
+
+
+# BAR-EN-101 - Isolation des murs
+
+rénovation . isolation des murs . isolation des murs par l'extérieur . aides . cee . volume:
+  valeur: rénovation . isolation des murs . aides . cee . volume
+  contexte:
+    rénovation . isolation des murs . aides . cee . surface à isoler: rénovation . isolation des murs . isolation des murs par l'extérieur . surface
+
+rénovation . isolation des murs . aides . cee . est éligible:
+  par défaut: non
+  toutes ces conditions:
+    - rénovation . logement existant
+
+rénovation . isolation des murs . aides . cee . volume:
+  valeur: rénovation . isolation des murs . aides . cee . volume forfaitaire
+  unité: kWhc
+  produit:
+    - rénovation . isolation des murs . aides . cee . volume forfaitaire
+    - rénovation . isolation des murs . aides . cee . surface à isoler
+
+
+rénovation . isolation des murs . aides . cee . volume forfaitaire:
+  par défaut: 0
+  unité: kWhc
+  variations:
+    - si:
+        toutes ces conditions:
+          - rénovation . date de référence >= 01/01/2024
+          - rénovation . date de référence < 01/05/2027
+      alors:
+        par défaut: 0
+        unité: kWhc/m2
+        variations: 
+          - si: rénovation . zone climatique . H1
+            alors: 1700
+          - si: rénovation . zone climatique . H2
+            alors: 1400
+          - si: rénovation . zone climatique . H3
+            alors: 920
+    - si:
+        toutes ces conditions:
+          - rénovation . date de référence >= 01/05/2022
+          - rénovation . date de référence < 01/01/2024
+      alors:
+        par défaut: 0
+        unité: kWhc/m2
+        variations: 
+          - si: rénovation . zone climatique . H1
+            alors: 1700
+          - si: rénovation . zone climatique . H2
+            alors: 1400
+          - si: rénovation . zone climatique . H3
+            alors: 920
+
+rénovation . isolation des murs . aides . cee . surface à isoler:
+  titre: Surface à isoler
+  unité: m2

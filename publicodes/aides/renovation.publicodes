@@ -1,0 +1,87 @@
+rénovation:
+  titre: Rénovation énergétique
+  par défaut: oui
+
+rénovation . date de référence:
+  titre: Date de référence
+
+rénovation . code département:
+  titre: Code département du logement faisant l'objet des travaux
+
+rénovation . métropole:
+  titre: Opération en France métropolitaine
+  valeur: geo . metropole
+  contexte:
+    geo . code département: rénovation . code département
+
+rénovation . outre mer:
+  titre: Opération en France d'outre-mer
+  valeur: geo . outre mer
+  contexte:
+    geo . code département: rénovation . code département
+
+rénovation . zone climatique:
+  applicable si: rénovation . code département
+  variations:
+    - si: geo . zone climatique . H1
+      alors: "'H1'"
+    - si: geo . zone climatique . H2
+      alors: "'H2'"
+    - si: geo . zone climatique . H3
+      alors: "'H3'"
+
+rénovation . zone climatique . H1:
+  valeur: geo . zone climatique . H1
+  contexte:
+    geo . code département: rénovation . code département
+
+rénovation . zone climatique . H2:
+  valeur: geo . zone climatique . H2
+  contexte:
+    geo . code département: rénovation . code département
+
+rénovation . zone climatique . H3:
+  valeur: geo . zone climatique . H3
+  contexte:
+    geo . code département: rénovation . code département
+
+rénovation . logement existant:
+  titre: Logement existant depuis plus de deux ans à la date de référence
+  par défaut: oui
+
+rénovation . aides:
+  titre: Montant total des aides financières
+  unité: €
+  valeur: 0
+
+rénovation . aides . maprimerénov':
+  titre: Montant total des aides Ma Prime Rénov'
+  unité: €
+  valeur: 0
+
+rénovation . aides . cee:
+  titre: Montant total des aides Certificats d'Economies d'Energie
+  unité: €
+  valeur: 0
+
+rénovation . aides . maprimerénov' . taux de reste à charge ressources très modestes:
+  valeur: 10%
+
+rénovation . aides . maprimerénov' . taux de reste à charge ressources modestes:
+  valeur: 25%
+
+rénovation . aides . maprimerénov' . taux de reste à charge ressources intermédiaires:
+  valeur: 40%
+
+rénovation . aides . maprimerénov' . taux de reste à charge ressources supérieures:
+  valeur: 60%
+
+rénovation . aides . cee . valorisation classique:
+  titre: Valorisation des Certificats d'Economies d'Energie Classique
+  unité: €/kWhc
+  valeur: 0.0065
+
+rénovation . aides . cee . valorisation précarité:
+  titre: Valorisation des Certificats d'Economies d'Energie Précarité
+  unité: €/kWhc
+  valeur: 0.0075
