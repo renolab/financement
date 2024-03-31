@@ -10,6 +10,12 @@ Ce projet a pour objectif de proposer un parcours unique de financement des trav
 - 🎯 Administrer une demande de financement en garantissant la cohérence et la sécurité des dossiers
 - 🎯 Proposer un modèle de guichet unique du financement de la rénovation énergétique
 
+### Usages
+
+- 👉 Simulation d'un plan de financement pour des travaux de rénovation énergétique
+- 👉 Instruction numérique d'une demande de financement (CEE/MPR)
+- 👉 Gestion des encours de financement CEE/MPR
+
 ### Livrables
 
 - 🛠️ Règles d'évaluation des dispositifs d'aide à la rénovation énergétique au format Publicodes
