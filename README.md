@@ -27,6 +27,10 @@ Ce projet a pour objectif de proposer un parcours unique de financement des trav
 
 **⚠️ Ce projet n'est pas financé pour le moment et est porté bénévolement**
 
+### Contact
+
+[Adrien Rosi Dit Rozzi](https://www.linkedin.com/in/adrienrosi/)
+
 ## Feuille de route
 
 1. Conception du modèle d'évaluation des financements de la rénovation énergétique
