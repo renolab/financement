@@ -46,12 +46,18 @@ flowchart TD
 
 ## Feuille de route
 
-1. Conception du modèle d'évaluation des financements de la rénovation énergétique
-2. Élaboration d'un parcours unique d'instruction des demandes
-3. Design des APIs
-4. Développement et déploiement des APIs
+1. Définition du projet
+2. Publication du modèle de calcul des aides à la rénovation énergétique
+3. Description du parcours unique d'instruction des demandes de financement
+4. Développement des APIs
 
-### 1. Conception du modèle d'évaluation des financements de la rénovation énergétique
+### 1. Définition du projet
+
+Un guichet unique de financement est un **service public ou public/privé** qui centralise les demandes de financement effectuées par les **tiers de confiance agréés** pour le compte des **bénéficiaires**. Le guichet unique propose un **parcours unique d'instruction** des demandes de financement qui garantit leur **cohérence** au regard des doctrines réglementaires en vigueur (CEE/MPR) et de la **lutte contre la fraude**.
+
+Le guichet unique est donc une **couche d'abstraction** qui absorbe le complexité technique, administrative et réglementaire des dispositifs d'aide à la rénovation énergétique, pour répondre aux **besoins des usagers** en matière de financement de leurs travaux.
+
+### 2. Publication du modèle de calcul des aides à la rénovation énergétique
 
 **🛠️ Travaux en cours**
 
@@ -80,7 +86,7 @@ flowchart TD
 - [Code de la construction et de l'habitation : Chapitre IX : Avance remboursable sans intérêt destinée au financement de travaux de rénovation afin d'améliorer la performance énergétique des logements anciens](https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006074096/LEGISCTA000020460912)
 - [Arrêté du 30 mars 2009 relatif aux conditions d'application de dispositions concernant les avances remboursables sans intérêt destinées au financement de travaux de rénovation afin d'améliorer la performance énergétique des logements anciens](https://www.legifrance.gouv.fr/loda/id/JORFTEXT000020459597/)
 
-### 2. Élaboration d'un parcours unique d'instruction des demandes
+### 3. Description du parcours unique d'instruction des demandes de financement
 
 **🛠️ Travaux en cours**
 
@@ -204,14 +210,10 @@ stateDiagram-v2
     Dossier.EnAttenteDemandePaiement --> Dossier.EnAttentePaiement: Demande de paiement
     Dossier.EnAttentePaiement --> Dossier.Archive: Dossier archivé
 ```
-### 3. Design des APIs
+### 4. Développement des APIs
 
 **🛠️ Travaux en cours**
 
 1. Conception des modèles de données au format JSON Schema
 2. Conception des schémas OpenAPI
 3. Description des règles de cohérence
-
-### 4. Développement et déploiement des APIs
-
-**🕰️ A venir**
