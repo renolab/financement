@@ -1,0 +1,80 @@
+openapi: 3.1.0
+info:
+  title: Instruction
+  version: 1.0.0
+  description: API pour l'instruction des demandes de financement des travaux de rénovation énergétique
+  contact:
+    name: Adrien Rosi Dit Rozzi
+    email: adrienrosi@gmail.com
+servers:
+  - url: /
+security:
+  - apiKey: []
+tags:
+  - name: Instruction
+paths:
+  /dossiers:
+    get:
+      summary: Recherche des dossiers de financement
+      tags: [Instruction]
+      operationId: rechercheDossiers
+    post:
+      summary: Créé un nouveau dossier de financement
+      tags: [Instruction]
+      operationId: nouveauDossier
+  /dossiers/{dossier_uuid}:
+    get:
+      summary: Cherche un dossier de financement
+      description: Retourne un dossier de financement à partir de son identifiant
+      tags: [Instruction]
+      operationId: rechercheDossier
+  /dossiers/{dossier_uuid}/annulation:
+    patch:
+      summary: Annule un dossier de financement
+      tags: [Instruction]
+      operationId: annuleDossier
+  /dossiers/{dossier_uuid}/demande_financement:
+    patch:
+      summary: Demande de financement
+      tags: [Instruction]
+      operationId: demandeFinancement
+  /dossiers/{dossier_uuid}/demande_financement/confirmation:
+    patch:
+      summary: Confirme la demande de financement
+      tags: [Instruction]
+      operationId: confirmeDemande
+  /dossiers/{dossier_uuid}/demande_financement/acceptation:
+    patch:
+      summary: Accepte la demande de financement
+      tags: [Instruction]
+      operationId: accepteDemande
+  /dossiers/{dossier_uuid}/demande_financement/refus:
+    patch:
+      summary: Refuse la demande de financement
+      tags: [Instruction]
+      operationId: refusDemande
+  /dossiers/{dossier_uuid}/operation/{operation_uuid}/engagement:
+    patch:
+      summary: Engagement de l'opération
+      tags: [Instruction]
+      operationId: engagementOperation
+  /dossiers/{dossier_uuid}/operation/{operation_uuid}/confirmation_engagement:
+    patch:
+      summary: Confirme l'engagement de l'opération
+      tags: [Instruction]
+      operationId: confirmeEngagementOperation
+  /dossiers/{dossier_uuid}/operation/{operation_uuid}/realisation:
+    patch:
+      summary: Réalisation de l'opération
+      tags: [Instruction]
+      operationId: realisationOperation
+  /dossiers/{dossier_uuid}/operation/{operation_uuid}/confirmation_realisation:
+    patch:
+      summary: Confirme de la réalisation de l'opération
+      tags: [Instruction]
+      operationId: confirmeRealisationOperation
+  /dossiers/{dossier_uuid}/demande_paiement:
+    patch:
+      summary: Demande de paiement
+      tags: [Instruction]
+      operationId: demandePaiement

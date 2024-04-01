@@ -1,27 +1,40 @@
 # @renolab/financement
 
-Ce projet a pour objectif de proposer un parcours unique de financement des travaux de rénovation énergétique à destination des acteurs de la filière.
+Ce projet a pour objectif de proposer un parcours unique de financement des travaux de rénovation énergétique accompagnés par un tiers de confiance agréé (Mon Accompagnateur Rénov' / Référent d'Aide à la Rénovation).
+
+```mermaid
+flowchart TD
+    tier_confiance(Tiers de confiance)
+    financeurs(Financeurs)
+    guichet(Guichet unique)
+    beneficiaire(Bénéficiaire)
+    professionnel(Installateurs)
+
+    financeurs-->guichet
+    tier_confiance<-->guichet
+    guichet-->beneficiaire
+    guichet-->professionnel
+```
 
 ## Synthèse
 
 ### Objectifs
 
-- 🎯 Évaluer des aides financières pour des projets de rénovation énergétique
-- 🎯 Administrer une demande de financement en garantissant la cohérence et la sécurité des dossiers
-- 🎯 Proposer un modèle de guichet unique du financement de la rénovation énergétique
+🎯 Évaluer des aides financières pour des projets de rénovation énergétique  
+🎯 Administrer une demande de financement en garantissant la cohérence et la sécurité des dossiers  
+🎯 Proposer un modèle de guichet unique du financement de la rénovation énergétique  
 
 ### Usages
 
-- 👉 Simulation d'un plan de financement pour des travaux de rénovation énergétique
-- 👉 Instruction numérique d'une demande de financement (CEE/MPR)
-- 👉 Gestion des encours de financement CEE/MPR
+👉 Simulation d'un plan de financement pour des travaux de rénovation énergétique  
+👉 Instruction numérique sécurisée d'une demande de financement (CEE/MPR)  
+👉 Gestion des encours de financement CEE/MPR  
 
-### Livrables
+### Parties prenantes
 
-- 🛠️ Règles d'évaluation des dispositifs d'aide à la rénovation énergétique au format Publicodes
-- 🛠️ Standard d'échange de données au format JSON Schema
-- 🛠️ Guide d'intégration d'un guichet unique de financement
-- 🛠️ API métier d'instruction des demandes de financement
+🏛️ Agence Nationale de l'Habitat  
+🏛️ Obligés et délégataires au titre du dispositif des Certificats d'Economies d'Energie  
+🏛️ Accompagnateurs de la rénovation énergétique  
 
 ### Budget
 
@@ -35,7 +48,7 @@ Ce projet a pour objectif de proposer un parcours unique de financement des trav
 
 1. Conception du modèle d'évaluation des financements de la rénovation énergétique
 2. Élaboration d'un parcours unique d'instruction des demandes
-3. Conception des modèles d'échange de données
+3. Design des APIs
 4. Développement et déploiement des APIs
 
 ### 1. Conception du modèle d'évaluation des financements de la rénovation énergétique
@@ -88,14 +101,14 @@ Un parcours d'instruction des demandes d'aide financière doit implémenter les 
 
 #### 2. Conception des workflows étape par étape
 
-##### Les intervenants
+**Les intervenants**
 
 - Un **tiers de confiance** agréé (un Accompagnateur Rénov' par exemple)
 - Le **bénéficiaire** du financement
 - Le **professionnel** ayant assuré la réalisation des travaux
 - Le **financeur**
 
-##### Les étapes clés
+**Les étapes clés**
 
 1. Simulation de financement sur la base d'un avant-projet par le **tiers de confiance** et le **bénéficiaire**
     - Le bénéficiaire dispose d'un plan de financement prévisionnel
@@ -130,13 +143,74 @@ Un parcours d'instruction des demandes d'aide financière doit implémenter les 
 10. Paiement par le **financeur**
     - Décentralisation des doctrines CEE/MPR avant paiement
 
-### 3. Conception des modèles d'échange de données
+**Diagramme de flux**
+
+```mermaid
+sequenceDiagram
+    Tiers de confiance->>Guichet unique: Je veux créer un nouveau dossier de financement
+    Guichet unique->>Tiers de confiance: OK, votre dossier est sauvegardé
+    Tiers de confiance->>Guichet unique: Mon client est d'accord, je demande un financement
+    Guichet unique->>Tiers de confiance: OK, votre client a été informé d'une demande de financement
+    Guichet unique->>Bénéficiaire: Nous avons reçu une demande de financement, donnez-vous votre accord ?
+    Bénéficiaire->>Guichet unique: Oui
+    Guichet unique->>Bénéficiaire: Merci, pouvez-vous également confirmer la situation fiscale de votre foyer ?
+    Bénéficiaire->>Guichet unique: Oui, voici les informations fiscales de mon foyer
+    Guichet unique->>Bénéficiaire: Merci, voici votre plan de financement à jour
+    Guichet unique->>Bénéficiaire: Votre dossier a été accepté
+    Guichet unique->>Tiers de confiance: Votre dossier a été accepté, vous pouvez décrire les travaux engagés
+    Tiers de confiance->>Guichet unique: Voici la description des travaux engagés
+    Guichet unique->>Bénéficiaire: Pouvez-vous nous confirmer les travaux engagés ?
+    Bénéficiaire->>Guichet unique: Je confirme que ces travaux ont bien été engagés
+    Guichet unique->>Professionnel: Pouvez-vous nous confirmer les travaux engagés ?
+    Professionnel->>Guichet unique: Je confirme que ces travaux ont bien été engagés
+    Guichet unique->>Tiers de confiance: Votre dossier est en attente de réception des travaux
+    Tiers de confiance->>Guichet unique: Voici la description des travaux réalisés
+    Guichet unique->>Bénéficiaire: Pouvez-vous nous confirmer les travaux réalisés ?
+    Bénéficiaire->>Guichet unique: Je confirme que ces travaux ont bien été réalisés
+    Guichet unique->>Professionnel: Pouvez-vous nous confirmer les travaux réalisés ?
+    Professionnel->>Guichet unique: Je confirme que ces travaux ont bien été réalisés
+    Guichet unique->>Tiers de confiance: Votre dossier est en attente de demande de paiement
+    Tiers de confiance->>Guichet unique: Je demande le paiement de mon dossier
+    Guichet unique->>Tiers de confiance: Votre dossier a bien été payé
+```
+
+**Diagramme d'état**
+
+```mermaid
+stateDiagram-v2
+    Dossier.Projet: Projet
+    Dossier.Annule: Dossier annulé
+    Dossier.EnAttenteConfirmationDemande: En attente de confirmation de la demande
+    Dossier.EnAttenteAcceptation: En attente d'acceptation de la demande
+    Dossier.EnAttenteEngagementTravaux: En attente de l'engagement des travaux
+    Dossier.EnAttenteConfirmationEngagementTravaux: En attente de la confirmation des travaux engagés
+    Dossier.EnAttenteRealisationTravaux: En attente de la réalisation des travaux
+    Dossier.EnAttenteConfirmationRealisationTravaux: En attente de la confirmation des travaux réalisés
+    Dossier.EnAttenteDemandePaiement: En attente de la demande de paiement
+    Dossier.EnAttentePaiement: En attente du paiement
+    Dossier.Archive: Dossier archivé
+
+    [*] --> Dossier.Projet: Création d'un dossier
+    Dossier.Projet --> Dossier.EnAttenteConfirmationDemande: Demande de financement
+    Dossier.Projet --> Dossier.Annule: Annulation du dossier
+    Dossier.EnAttenteConfirmationDemande --> Dossier.Annule: Refus de la demande
+    Dossier.EnAttenteConfirmationDemande --> Dossier.EnAttenteAcceptation: Confirmation de la demande
+    Dossier.EnAttenteAcceptation --> Dossier.Annule: Refus de la demande
+    Dossier.EnAttenteAcceptation --> Dossier.EnAttenteEngagementTravaux: Acceptation de la demande
+    Dossier.EnAttenteEngagementTravaux --> Dossier.EnAttenteConfirmationEngagementTravaux: Engagement des travaux
+    Dossier.EnAttenteConfirmationEngagementTravaux --> Dossier.EnAttenteRealisationTravaux: Confirmation des travaux engagés
+    Dossier.EnAttenteRealisationTravaux --> Dossier.EnAttenteConfirmationRealisationTravaux: Réalisation des travaux
+    Dossier.EnAttenteConfirmationRealisationTravaux --> Dossier.EnAttenteDemandePaiement: Confirmation des travaux réalisés
+    Dossier.EnAttenteDemandePaiement --> Dossier.EnAttentePaiement: Demande de paiement
+    Dossier.EnAttentePaiement --> Dossier.Archive: Dossier archivé
+```
+### 3. Design des APIs
 
 **🛠️ Travaux en cours**
 
 1. Conception des modèles de données au format JSON Schema
-2. Description des règles de cohérence
-3. Description des échanges au format OpenAPI
+2. Conception des schémas OpenAPI
+3. Description des règles de cohérence
 
 ### 4. Développement et déploiement des APIs
 
