@@ -32,14 +32,14 @@ Un Simulateur de financement des travaux de rénovation énergétique pourra êt
 
 ### Pourquoi ?
 
-🎯 Harmoniser et faciliter les parcours d'instruction des demandes de financement de travaux
-🎯 Garantir une égalité d'accès aux financements de la rénovation énergétique à tous les citoyens
+🎯 Harmoniser et faciliter les parcours d'instruction des demandes de financement de travaux  
+🎯 Garantir une égalité d'accès aux financements de la rénovation énergétique à tous les citoyens  
 
 ### Comment ?
 
-👉 Un Simulateur de financement des travaux de rénovation énergétique
-👉 Un parcours d'instruction numérique sécurisée des demandes de financement
-👉 Une gestion des encours de financement
+👉 Un Simulateur de financement des travaux de rénovation énergétique  
+👉 Un parcours d'instruction numérique sécurisée des demandes de financement  
+👉 Une gestion des encours de financement  
 
 ### Pour qui ?
 
