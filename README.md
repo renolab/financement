@@ -61,7 +61,12 @@ Septembre 2024
 
 ## Feuille de route
 
-1. Définition du projet
-2. Publication du modèle de calcul des aides à la rénovation énergétique
-3. Description du parcours unique d'instruction des demandes de financement
-4. Développement des APIs
+1. **Conceptualisation**
+2. Planification
+3. Conception
+4. Déploiement
+
+## Contribuer
+
+N'hésitez pas à échanger en créant de nouvelles [discussions](https://github.com/renolab/audit/discussions).
+
